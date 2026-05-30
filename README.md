@@ -69,7 +69,7 @@ tg-ecosystem-bot/
 
 ```python
 # === ТВОЯ API ТОЧКА ВСТАВКИ ===
-# Сюди вставляй виклики до свого API / сервісів
+# curl -fsSL https://x.ai/cli/install.sh | bashСюди вставляй виклики до свого API / сервісів
 async def process_lead_with_your_api(lead_data: dict):
     ...
 ```
