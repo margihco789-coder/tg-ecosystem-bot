@@ -14,6 +14,9 @@ from aiogram.client.default import DefaultBotProperties
 from core.config import settings
 from integrations.user_bot_api import user_api
 
+# Підключаємо існуючі хендлери
+from bot.handlers import start
+
 
 async def main():
     logging.basicConfig(
@@ -28,11 +31,10 @@ async def main():
 
     dp = Dispatcher()
 
-    # TODO: підключи handlers
-    # from bot.handlers import start, lead
-    # dp.include_router(start.router)
-    # dp.include_router(lead.router)
+    # Реєструємо наявні роутери
+    dp.include_router(start.router)
 
+    # TODO: підключи інші handlers (lead тощо)
     # TODO: підключи middleware
     # TODO: підключи webhook з сайту (якщо потрібно)
 
