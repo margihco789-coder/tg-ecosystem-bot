@@ -1,13 +1,13 @@
-from aiogram import Router, types
-from aiogram.filters import CommandStart
+from aiogram import Router
+from aiogram.types import Message
+from aiogram.filters import Command
 
 router = Router()
 
 
-@router.message(CommandStart())
-async def cmd_start(message: types.Message):
+@router.message(Command("start"))
+async def cmd_start(message: Message):
+    """Simple /start handler"""
     await message.answer(
-        "Привіт! Я — частина екосистеми Markiian Hyshko Engineering Bureau.\n\n"
-        "Готовий допомогти з проєктом або відповісти на питання.\n"
-        "Напиши, що тебе цікавить."
+        "Привіт! Я — TG Ecosystem Bot. Використай цей бот як стартову точку."
     )

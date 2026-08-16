@@ -35,6 +35,14 @@ class Settings(BaseSettings):
     DEBUG: bool = Field(default=True)
     LOG_LEVEL: str = Field(default="INFO")
 
+    # Webhook settings (optional)
+    USE_WEBHOOK: bool = Field(default=False, description="Запускати бот через webhook замість polling")
+    WEBHOOK_URL: Optional[str] = Field(
+        None, description="Публічна URL-адреса для webhook (наприклад https://example.com/webhook)")
+    WEBHOOK_HOST: str = Field(default="0.0.0.0", description="Хост для про��луховування webhook")
+    WEBHOOK_PORT: int = Field(default=8443, description="Порт для прослуховування webhook")
+    WEBHOOK_PATH: str = Field(default="/webhook", description="Local path for webhook endpoint")
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
